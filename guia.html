@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookonnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Contextualización</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="bd.html">Base de Datos</a>
+        <a href="uml.html">UML</a>
+        <a href="#">Guía</a>
+        <a href="incidencias.html">Incidencias</a>
+    </div>
+
+<div class="main">
+    <div id="section1">
+        <h2>Guía de uso</h2>
+        <p>A continuación, comentaré la guía de uso básica para los usuarios Gestor y Cliente, por separado.</p>
+        <h3>Gestor</h3>
+        <h4>Inicio</h4>
+        <p>En primer lugar observamos el menú inicial. Como no podemos crear gestores ya que <b>solo existe uno</b>, iniciamos sesión.</p>
+        <p><img src="img/guia/gestor/gestor1.png" alt="g1"></p>
+        <p><img src="img/guia/gestor/gestor2.png" alt="g2"></p>
+        <h4>Pantalla principal</h4>
+        <p>Una vez en la pantalla principal vemos un saludo al gestor con el logo corporativo. En el menubar superior vemos Cuenta y Gestión:</p>
+        <p><img src="img/guia/gestor/gestor3.png" alt="g3"></p>
+        <p>En cuenta, nos permite cerrar sesión.</p>
+        <p><img src="img/guia/gestor/gestor4.png" alt="g4"></p>
+        <p>En gestión nos permite trabajar: Añadir, eliminar y editar libros.</p>
+        <p><img src="img/guia/gestor/gestor5.png" alt="g5"></p>
+        <h4>Añadir Libro</h4>
+        <p>Para añadir un libro, solo tenemos que rellenar los datos con los campos correspondientes y darle a añadir, en caso de error seremos notificados.</p>
+        <p><img src="img/guia/gestor/gestor6.png" alt="g6"></p>
+        <h4>Eliminar Libro</h4>
+        <p>En caso de eliminar el libro, primero seleccionamos el ID del libro a eliminar. Seguidamente, tras mostrarnos los datos de dicho libro, podemos confirmar la eliminación del mismo.</p>
+        <p><img src="img/guia/gestor/gestor7.png" alt="g7"><img src="img/guia/gestor/gestor8.png" alt="g8"></p>
+        <h4>Modificar Libro</h4>
+        <p>El modificar un libro funciona similar, tras filtrar mediante ID nos rellena los campos con los datos del libro y, al darle a editar, los datos que en ese momento estén en los campos serán los que sobreescriban los anteriores.</p>
+        <p><img src="img/guia/gestor/gestor9.png" alt="g9"><img src="img/guia/gestor/gestor10.png" alt="g10"></p>
+        <h2>IMPORTANTE</h2>
+        <p><b>En caso de que hayas agregado un nuevo libro, en vez de cerrar sesión y iniciar la nueva como cliente, recomendamos cerrar la Aplicación y volver a abrirla ya que la lista de categorias se actualiza en cuanto la Aplicación se abre. En caso contrario, no mostrará las nuevas categorias añadidas.</b></p>
+        <h3>Cliente</h3>
+        <h4>Inicio</h4>
+        <p>Ya que el Cliente si puede crear cuenta, nos enfocaremos en ello.</p>
+        <p><img src="img/guia/cliente/c1.png" alt="c1"></p>
+        <h4>Crear cuenta</h4>
+        <p>Tras rellenar los datos correspondientes, nos permitirá crear un cliente. En caso de error, seremos notificados.</p>
+        <p><img src="img/guia/cliente/c2.png" alt="c2"></p>
+        <h4>Pantalla Principal</h4>
+        <p>Comprobamos que ahora la pantalla principal ha cambiado, tenemos un botón central para alquilar libros y solo poseemos la sección cuenta en el menubar.</p>
+        <p><img src="img/guia/cliente/c3.png" alt="c3"></p>
+        <h4>Cambiar Contraseña</h4>
+        <p>Si accedemos a dicha sección veremos nuevos campos: Cambiar Contraseña y Mostrar alquileres. En este caso, al cambiar la contraseña solo deberemos establecer la contraseña actual y acto seguido la nueva, repetida para validar credenciales.</p>
+        <p><img src="img/guia/cliente/c4.png" alt="c4"><img src="img/guia/cliente/c5.png" alt="c5"></p>
+        <h4>Buscar Libros</h4>
+        <p>Si en el menú principal le damos a alquilar, accedemos al buscador. Ahora, tras seleccionar (o no) una categoría de la cual filtrar, nos mostrarán los libros del resultado de las mismas.</p>
+        <p><img src="img/guia/cliente/c6.png" alt="c6"></p>
+        <h4>Alquilar</h4>
+        <p>Una vez mostrados los libros, si escribimos el id del mismo en el textfield inferior derecho y presionamos alquilar, alquilaremos el libro establecido en caso de que exista dicho id.</p>
+        <p><img src="img/guia/cliente/c7.png" alt="c7"></p>
+        <h4>Ver alquileres</h4>
+        <p>Ahora, en la anterior sección de Ver alquileres, si presionamos actualizar nos mostrará la lista de todos los alquileres ligados a nuestra cuenta.</p>
+        <p><img src="img/guia/cliente/c8.png" alt="c8"></p>
+        <h4>Devolver libro</h4>
+        <p>Podemos observar que el estado de dicho alquiler al ser realizado está estabecido como Alquilado. Para devolverlo debemos escribir el ID del libro en el textfield de abajo a la derecha y acto seguido, presionar devolver. En caso de que dicho ID sea válido, el libro será devuelto y, al actualizar la lista, podremos ver su nuevo estado.</p>
+        <p><img src="img/guia/cliente/c9.png" alt="c9"><img src="img/guia/cliente/c10.png" alt="c10"></p>
+    </div>
+</div>
+
+</body>
+</html>

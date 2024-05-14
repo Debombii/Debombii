@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookonnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Contextualización</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="#">Base de Datos</a>
+        <a href="uml.html">UML</a>
+        <a href="guia.html">Guía</a>
+        <a href="incidencias.html">Incidencias</a>
+    </div>
+
+<div class="main">
+    <div id="section1">
+        <h2>Diseño de la Base de Datos</h2>
+        <h3>Modelo Entidad-Relacion</h3>
+        <p>El modelo entidad relación me costó especialmente ya que no recordaba exactamente como era el proceso de creación. Con ayuda de Ana pude realizar un diseño simple, eficaz y funcional. 
+            Surgieron varios <b>problemas</b> a lo largo del proyecto con mi base de datos anterior ya que tenía un diseño pobre con mucha complicación técnica. Ya que tenía todo bien documentado y apuntado pude cambiar facilmente el diseño hasta dejarlo <b>correcto</b>.
+        </p>
+        <img src="img/bd/ER.png" alt="Modelo ER">
+        <br><br><br>
+        <h3>Modelo Lógico/Relacional</h3>
+        <p>El modelo lógico/Relacional, una vez ya listo el modelo Entidad-Relación fue muy simple y fácil de implementar.
+            Poseo <b>una relación M:N</b> y <b>una relación 1:N</b> ya que mi aplicación solo posee un único gestor en activo.
+        </p>
+        <div class="code">
+            <p>
+                CLIENTE(dni_c, nombre, apellido, telefono, usuario, contraseña) <br>
+                LIBRO(id_l, autor, titulo, editorial, paginas, unidades, categoria, dni_g) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;LIBRO.dni_g es clave ajena de GESTOR <br>
+                ALQUILER(dni_c, id_l, estado, fechaDevolucion, fechaAlquiler) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ALQUILER.dni_c es clave ajena de CLIENTE <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ALQUILER.id_l es clave ajena de LIBRO <br>
+                GESTOR(dni_g, nombre, apellido, telefono, usuario, contraseña) <br>
+            </p>
+        </div>
+        <br><br><br>
+        <h3>Diseño Físico</h3>
+        <p>A continuación dejaré evidencias del diseño físico de la base de datos, además de los inserts que dejaré predefinidos para que a la hora de interactuar con la App tenga un mínimo de riqueza de datos:</p>
+        <p><b>Tablas:</b></p>
+        <div class="code">
+            <p><br><br>
+                CREATE TABLE CLIENTE (
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dni_c VARCHAR(10) NOT NULL PRIMARY KEY,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nombre VARCHAR(50),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;apellido VARCHAR(100),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;telefono VARCHAR(10),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;usuario VARCHAR(15),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;contraseña VARCHAR(20)
+                <br>
+                );
+                <br><br>
+                CREATE TABLE GESTOR (
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dni_g VARCHAR(10) NOT NULL PRIMARY KEY,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;nombre VARCHAR(50),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;apellido VARCHAR(100),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;telefono VARCHAR(20),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;usuario VARCHAR(15),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;contraseña VARCHAR(20)
+                <br>
+                );
+                <br><br>
+                CREATE TABLE LIBRO (
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;id_l VARCHAR(10) NOT NULL PRIMARY KEY,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;autor VARCHAR(255),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;titulo VARCHAR(255),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;editorial VARCHAR(255),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;paginas INT,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;unidades INT,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;categoria VARCHAR(50),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dni_g VARCHAR(10) NOT NULL,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FOREIGN KEY (DNI_G) REFERENCES GESTOR(DNI_G) ON DELETE CASCADE
+                <br>
+                );
+                <br><br>
+                CREATE TABLE ALQUILER(
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dni_c VARCHAR(10) NOT NULL,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;id_l VARCHAR(10) NOT NULL,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;estado VARCHAR(20),
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;fechaAlquiler DATE,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;fechaDevolucion DATE,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FOREIGN KEY (dni_c) REFERENCES CLIENTE(dni_c) ON DELETE CASCADE,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FOREIGN KEY (id_l) REFERENCES LIBRO(id_l) ON DELETE CASCADE,
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY (dni_c, id_l)
+                <br>
+                );
+                <br><br></p>
+        </div>
+        <p><b> Inserts:</b></p>
+        <div class="code">
+            <p>
+                insert into gestor values("42330163C", "David", "Paz", 684317287, "gestoruserdavid", "P@ssw0rd");
+                <br><br>
+                INSERT INTO LIBRO (id_l, autor, titulo, editorial, paginas, unidades, categoria, dni_g) VALUES
+                ('L001', 'Autor1', 'Libro1', 'Editorial1', 200, 50, 'Fantasía', '42330163C'),
+                ('L002', 'Autor2', 'Libro2', 'Editorial2', 250, 40, 'Ciencia Ficción', '42330163C'),
+                ('L003', 'Autor3', 'Libro3', 'Editorial3', 180, 60, 'Suspense', '42330163C'),
+                ('L004', 'Autor4', 'Libro4', 'Editorial4', 300, 30, 'Thriller', '42330163C'),
+                ('L005', 'Autor5', 'Libro5', 'Editorial5', 220, 45, 'Terror', '42330163C'),
+                ('L006', 'Autor6', 'Libro6', 'Editorial6', 190, 55, 'Cuento Infantil', '42330163C');
+                <br><br>
+                INSERT INTO CLIENTE (dni_c, nombre, apellido, telefono, usuario, contraseña) VALUES
+                ('12345678A', 'Juan', 'Gómez', '123456789', 'juangomez', 'pass'),
+                ('23456789B', 'María', 'López', '987654321', 'marialopez', 'password'),
+                ('34567890C', 'Pedro', 'Martínez', '456789012', 'pedromartinez', 'pass123'),
+                ('45678901D', 'Laura', 'Sánchez', '789012345', 'laurasanchez', 'password123'),
+                ('56789012E', 'Ana', 'García', '654321098', 'anagarcia', 'Passw0rd');
+            </p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

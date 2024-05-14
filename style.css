@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #01182a;
+    position: sticky;
+    top: 0;
+    text-align: center;
+}
+
+.navbar a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background-color: #01182a;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    background-color: #012642;
+}
+
+.main {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    max-width: 80%;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.main p {
+    font-family: Arial, sans-serif;
+    margin-left: 5%;
+    margin-right: 10%;
+    text-align: justify;
+    margin-top: 2%;
+}
+
+h2 {
+    color: #134e7b;
+}
+
+a {
+    color: #01182a;
+    background-color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img {
+    margin-left: 5%;
+    max-width: 80%;
+    max-height: 80%;
+    margin-right: 5%;
+
+}
+
+a:hover{
+    color: white;
+    background-color: #01182a;
+}
+button:hover {
+    background-color: #013156;
+}
+
+.code {
+    font-family: Consolas, monospace;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    color: #333;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+h3 {
+    margin-left: 2%;
+    color: #0462a9;
+}
+
+h4 {
+    margin-left: 3%;
+    color: #0870bf;
+}
+
+.solucion {
+    margin-top: 3%;
+    color: #1d741a;
+
+}
+
+.problema {
+    color: #941d1d;
+}
+
+.code p {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+b {
+    color: #073960;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: #031625;
+}
+
+ol {
+    counter-reset: item;
+}
+
+li {
+    list-style: none;
+    counter-increment: item;
+    margin-bottom: 10px;
+}
+
+li:before {
+    content: counter(item);
+    background-color: #012642;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contexto {
+    font-style: italic;
+    color: #808080;
+    font-size: 14px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #012642;
+    color: white;
+}
+.comentario {
+    text-align: left;
+}
